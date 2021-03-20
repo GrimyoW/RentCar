@@ -1,55 +1,73 @@
 package patryk.pretki.com.rentcar.RentalOffice;
 
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "Lista_Oddziałów")
-public class BranchList {
+@Table
+public class BranchList { //lista oddziałów
 
-  @Table(name = "Adres")
-  private String adres;
+  @Column
+  private String street;
+  @Column
+  private String City;
 
-  @Table(name = "WorkerList")
-  private String workerlist;
+  @Column
+  @ManyToOne(targetEntity = Worker.class)
+  private Worker worker;
 
-  @Table(name = "AvailableCars")
-  private String availablecars;
+  @Column
+  private String availableCars;
 
+  @Column
   @ManyToOne(targetEntity = Car.class)  //nie jestem tego pewien
   private Car car;
+  @Id
+  private String id;
 
-  public BranchList(String adres, String workerlist, String availablecars, Car car) {
-    this.adres = adres;
-    this.workerlist = workerlist;
-    this.availablecars = availablecars;
+  public BranchList() {
+
+  }
+
+  public BranchList(String street, String city, Worker worker, String availableCars, Car car, String id) {
+    this.street = street;
+    City = city;
+    this.worker = worker;
+    this.availableCars = availableCars;
     this.car = car;
+    this.id = id;
   }
 
-  public String getAdres() {
-    return adres;
+  public String getStreet() {
+    return street;
   }
 
-  public void setAdres(String adres) {
-    this.adres = adres;
+  public void setStreet(String street) {
+    this.street = street;
   }
 
-  public String getWorkerlist() {
-    return workerlist;
+  public String getCity() {
+    return City;
   }
 
-  public void setWorkerlist(String workerlist) {
-    this.workerlist = workerlist;
+  public void setCity(String city) {
+    City = city;
   }
 
-  public String getAvailablecars() {
-    return availablecars;
+  public Worker getWorker() {
+    return worker;
   }
 
-  public void setAvailablecars(String availablecars) {
-    this.availablecars = availablecars;
+  public void setWorker(Worker worker) {
+    this.worker = worker;
+  }
+
+  public String getAvailableCars() {
+    return availableCars;
+  }
+
+  public void setAvailableCars(String availableCars) {
+    this.availableCars = availableCars;
   }
 
   public Car getCar() {
@@ -60,13 +78,23 @@ public class BranchList {
     this.car = car;
   }
 
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   @Override
   public String toString() {
     return "BranchList{" +
-      "adres='" + adres + '\'' +
-      ", workerlist='" + workerlist + '\'' +
-      ", availablecars='" + availablecars + '\'' +
+      "street='" + street + '\'' +
+      ", City='" + City + '\'' +
+      ", worker=" + worker +
+      ", availableCars='" + availableCars + '\'' +
       ", car=" + car +
+      ", id='" + id + '\'' +
       '}';
   }
 }

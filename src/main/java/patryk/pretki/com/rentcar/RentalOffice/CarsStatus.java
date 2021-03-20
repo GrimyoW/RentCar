@@ -1,7 +1,7 @@
 package patryk.pretki.com.rentcar.RentalOffice;
 
-public enum CarsStatus {
+public enum CarsStatus { //status aut
   DAMAGE,
-  AVAILABLE,
+  FREE,
   RENTED
 }

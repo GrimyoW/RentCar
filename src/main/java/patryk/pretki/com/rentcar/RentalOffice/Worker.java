@@ -4,27 +4,33 @@ package patryk.pretki.com.rentcar.RentalOffice;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Worker")
-public class Worker {
+@Table
+public class Worker { //pracownik
 
-  @Column(name = "FirstName")
+  @Column
   private String firstName;
 
-  @Column(name = "LastName")
+  @Column
   private String lastName;
 
-  @Column(name = "departament/section")
+  @Column
   private String departament;
 
-  @Column (name = "Position")
+  @Column
   @Enumerated(EnumType.STRING)
   private WorkerPosition workerPosition;
+  @Id
+  private String id;
 
   public Worker(String firstName, String lastName, String departament, WorkerPosition workerPosition) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.departament = departament;
     this.workerPosition = workerPosition;
+  }
+
+  public Worker() {
+
   }
 
   public String getFirstName() {
@@ -67,5 +73,13 @@ public class Worker {
       ", departament='" + departament + '\'' +
       ", workerPosition=" + workerPosition +
       '}';
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getId() {
+    return id;
   }
 }

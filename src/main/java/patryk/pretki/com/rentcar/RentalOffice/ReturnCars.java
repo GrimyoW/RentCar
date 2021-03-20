@@ -3,40 +3,43 @@ package patryk.pretki.com.rentcar.RentalOffice;
 import patryk.pretki.com.rentcar.RentalOffice.Customers;
 import patryk.pretki.com.rentcar.RentalOffice.Reservation;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "ReturnCars")
-public class Return {
+@Table
+public class ReturnCars { //zwrot aut
 
   @Column
   @ManyToOne(targetEntity = Customers.class)
   private Customers customers;
 
-  @Column(name = "return date")
+  @Column
   private LocalDate returnDate;
 
   @Column
   @ManyToOne(targetEntity = Reservation.class)
   private Reservation reservation;
 
-  @Column(name = "suplement")
+  @Column
   private BigDecimal suplemnet;
 
-  @Column(name = "uwagi")
+  @Column
   private String uwagi;
+  @Id
+  private String id;
 
-  public Return(Customers customers, LocalDate returnDate, Reservation reservation, BigDecimal suplemnet, String uwagi) {
+  public ReturnCars(Customers customers, LocalDate returnDate, Reservation reservation, BigDecimal suplemnet, String uwagi) {
     this.customers = customers;
     this.returnDate = returnDate;
     this.reservation = reservation;
     this.suplemnet = suplemnet;
     this.uwagi = uwagi;
+  }
+
+  public ReturnCars() {
+
   }
 
   public Customers getCustomers() {
@@ -88,5 +91,13 @@ public class Return {
       ", suplemnet=" + suplemnet +
       ", uwagi='" + uwagi + '\'' +
       '}';
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getId() {
+    return id;
   }
 }

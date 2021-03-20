@@ -5,33 +5,35 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "cars")
-public class Car {
+@Table
+public class Car { //samochody
 
-  @Column (name = "mark")
+  @Column
   private String mark;
 
-  @Column (name = "model")
+  @Column
   private String model;
 
-  @Column (name = "body type")
+  @Column
   private String bodyType;
 
-  @Column (name = "year")
+  @Column
   private long year;
 
-  @Column (name = "color")
+  @Column
   private String color;
 
-  @Column (name = "mileage")
+  @Column
   private BigDecimal mileage;
 
-  @Column (name = "price")
+  @Column
   private BigDecimal price;
 
-  @Column (name = "car status")
+  @Column
   @Enumerated(EnumType.STRING)
   private CarsStatus carsStatus;
+  @Id
+  private String id;
 
   public Car(String mark, String model, String bodyType, long year, String color, BigDecimal mileage, BigDecimal price, CarsStatus carsStatus) {
     this.mark = mark;
@@ -42,6 +44,10 @@ public class Car {
     this.mileage = mileage;
     this.price = price;
     this.carsStatus = carsStatus;
+  }
+
+  public Car() {
+
   }
 
   public String getMark() {
@@ -123,4 +129,11 @@ public class Car {
   }
 
 
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getId() {
+    return id;
+  }
 }

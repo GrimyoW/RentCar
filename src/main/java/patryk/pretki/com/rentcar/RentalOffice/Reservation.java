@@ -11,28 +11,28 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "reservation")
-public class Reservation {
+@Table
+public class Reservation { //reserwacaj
 
   @Id
-  @Column(name = "reservation id")
+  @Column
   @GeneratedValue(generator = "donationSeq")
   @GenericGenerator(name = "donationSeq", strategy = "increment")
   private int reservationId;
 
-  @Column(name = "Date_reservation")
+  @Column
   private LocalDate dateReservation;
 
-  @Column(name = "real_start_date")
+  @Column
   private LocalDate realStartDateReservation;
 
-  @Column(name = "real_return_date")
+  @Column
   private LocalDate realReturnDate;
 
-  @Column(name = "price")
+  @Column
   private BigDecimal price;
 
-  @Column(name = "return_city_branch")
+  @Column
   private String returnCityBranch;
 
   @Column
@@ -55,6 +55,10 @@ public class Reservation {
     this.car = car;
     this.customers = customers;
     this.branchList = branchList;
+  }
+
+  public Reservation() {
+
   }
 
   public int getReservationId() {

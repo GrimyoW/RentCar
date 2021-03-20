@@ -6,12 +6,12 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "rent")
-public class Rent {
+@Table
+public class Rent { // wypożyczenia
 
 
   @Id
-  @Column(name = "rent id")
+  @Column
   @GeneratedValue(generator = "donationSeq")
   @GenericGenerator(name = "donationSeq", strategy = "increment")
   private int rentId;
@@ -20,7 +20,7 @@ public class Rent {
   @ManyToOne(targetEntity = Worker.class) //Powstaje na podstawie klasy pracowników czy w jakiś inny sposób?
   private Worker worker;
 
-  @Column(name = "rent date")
+  @Column
   private LocalDate rentDate;
 
 
@@ -28,7 +28,7 @@ public class Rent {
   @ManyToOne(targetEntity = Reservation.class)
   private Reservation reservation;
 
-  @Column(name = "Uwagi")
+  @Column
   private String Uwagi;
 
   public Rent(int rentId, Worker worker, LocalDate rentDate, Reservation reservation, String uwagi) {
@@ -37,6 +37,10 @@ public class Rent {
     this.rentDate = rentDate;
     this.reservation = reservation;
     Uwagi = uwagi;
+  }
+
+  public Rent() {
+
   }
 
   public int getRentId() {

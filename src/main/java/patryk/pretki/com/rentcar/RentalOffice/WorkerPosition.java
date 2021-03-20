@@ -1,6 +1,6 @@
 package patryk.pretki.com.rentcar.RentalOffice;
 
-public enum WorkerPosition {
+public enum WorkerPosition { //stanowisko pracownika
   WORKER,
-  MENAGER
+  BOSS
 }

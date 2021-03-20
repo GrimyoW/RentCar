@@ -3,11 +3,12 @@ package patryk.pretki.com.rentcar.RentalOffice;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Customers")
-public class Customers {
+@Table
+public class Customers { //klienci
 
   @Column
   private String firstName;
@@ -18,14 +19,20 @@ public class Customers {
   @Column
   private String email;
 
-  @Column(name = "adres")
+  @Column
   private String adres;
+  @Id
+  private String id;
 
   public Customers(String firstName, String lastName, String email, String adres) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.adres = adres;
+  }
+
+  public Customers() {
+
   }
 
   public String getFirstName() {
@@ -68,5 +75,13 @@ public class Customers {
       ", email='" + email + '\'' +
       ", adres='" + adres + '\'' +
       '}';
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getId() {
+    return id;
   }
 }
