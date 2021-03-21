@@ -1,10 +1,7 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 
 import org.hibernate.annotations.GenericGenerator;
-import patryk.pretki.com.rentcar.RentalOffice.BranchList;
-import patryk.pretki.com.rentcar.RentalOffice.Car;
-import patryk.pretki.com.rentcar.RentalOffice.Customers;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,8 +13,7 @@ public class Reservation { //reserwacaj
 
   @Id
   @Column
-  @GeneratedValue(generator = "donationSeq")
-  @GenericGenerator(name = "donationSeq", strategy = "increment")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int reservationId;
 
   @Column

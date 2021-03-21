@@ -1,14 +1,16 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
 public class Customers { //klienci
+
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
 
   @Column
   private String firstName;
@@ -21,18 +23,25 @@ public class Customers { //klienci
 
   @Column
   private String adres;
-  @Id
-  private String id;
 
-  public Customers(String firstName, String lastName, String email, String adres) {
+  public Customers() {
+
+  }
+
+  public Customers(long id, String firstName, String lastName, String email, String adres) {
+    this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.adres = adres;
   }
 
-  public Customers() {
+  public long getId() {
+    return id;
+  }
 
+  public void setId(long id) {
+    this.id = id;
   }
 
   public String getFirstName() {
@@ -70,18 +79,11 @@ public class Customers { //klienci
   @Override
   public String toString() {
     return "Customers{" +
-      "firstName='" + firstName + '\'' +
+      "id=" + id +
+      ", firstName='" + firstName + '\'' +
       ", lastName='" + lastName + '\'' +
       ", email='" + email + '\'' +
       ", adres='" + adres + '\'' +
       '}';
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getId() {
-    return id;
   }
 }

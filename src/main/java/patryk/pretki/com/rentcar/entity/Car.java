@@ -1,4 +1,4 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 
 import javax.persistence.*;
@@ -7,6 +7,11 @@ import java.math.BigDecimal;
 @Entity
 @Table
 public class Car { //samochody
+
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private String id;
 
   @Column
   private String mark;
@@ -32,10 +37,13 @@ public class Car { //samochody
   @Column
   @Enumerated(EnumType.STRING)
   private CarsStatus carsStatus;
-  @Id
-  private String id;
 
-  public Car(String mark, String model, String bodyType, long year, String color, BigDecimal mileage, BigDecimal price, CarsStatus carsStatus) {
+  public Car() {
+
+  }
+
+  public Car(String id, String mark, String model, String bodyType, long year, String color, BigDecimal mileage, BigDecimal price, CarsStatus carsStatus) {
+    this.id = id;
     this.mark = mark;
     this.model = model;
     this.bodyType = bodyType;
@@ -46,8 +54,12 @@ public class Car { //samochody
     this.carsStatus = carsStatus;
   }
 
-  public Car() {
+  public String getId() {
+    return id;
+  }
 
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getMark() {
@@ -117,7 +129,8 @@ public class Car { //samochody
   @Override
   public String toString() {
     return "Car{" +
-      "mark='" + mark + '\'' +
+      "id='" + id + '\'' +
+      ", mark='" + mark + '\'' +
       ", model='" + model + '\'' +
       ", bodyType='" + bodyType + '\'' +
       ", year=" + year +
@@ -126,14 +139,5 @@ public class Car { //samochody
       ", price=" + price +
       ", carsStatus=" + carsStatus +
       '}';
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getId() {
-    return id;
   }
 }

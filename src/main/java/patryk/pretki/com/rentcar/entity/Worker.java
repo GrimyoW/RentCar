@@ -1,4 +1,4 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 
 import javax.persistence.*;
@@ -7,6 +7,10 @@ import javax.persistence.*;
 @Table
 public class Worker { //pracownik
 
+  @Column
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long idWorker;
   @Column
   private String firstName;
 
@@ -22,15 +26,26 @@ public class Worker { //pracownik
   @Id
   private String id;
 
-  public Worker(String firstName, String lastName, String departament, WorkerPosition workerPosition) {
+
+  public Worker() {
+
+  }
+
+  public Worker(long idWorker, String firstName, String lastName, String departament, WorkerPosition workerPosition, String id) {
+    this.idWorker = idWorker;
     this.firstName = firstName;
     this.lastName = lastName;
     this.departament = departament;
     this.workerPosition = workerPosition;
+    this.id = id;
   }
 
-  public Worker() {
+  public long getIdWorker() {
+    return idWorker;
+  }
 
+  public void setIdWorker(int idWorker) {
+    this.idWorker = idWorker;
   }
 
   public String getFirstName() {
@@ -65,21 +80,23 @@ public class Worker { //pracownik
     this.workerPosition = workerPosition;
   }
 
-  @Override
-  public String toString() {
-    return "Worker{" +
-      "firstName='" + firstName + '\'' +
-      ", lastName='" + lastName + '\'' +
-      ", departament='" + departament + '\'' +
-      ", workerPosition=" + workerPosition +
-      '}';
+  public String getId() {
+    return id;
   }
 
   public void setId(String id) {
     this.id = id;
   }
 
-  public String getId() {
-    return id;
+  @Override
+  public String toString() {
+    return "Worker{" +
+      "idWorker=" + idWorker +
+      ", firstName='" + firstName + '\'' +
+      ", lastName='" + lastName + '\'' +
+      ", departament='" + departament + '\'' +
+      ", workerPosition=" + workerPosition +
+      ", id='" + id + '\'' +
+      '}';
   }
 }

@@ -1,7 +1,4 @@
-package patryk.pretki.com.rentcar.RentalOffice;
-
-import patryk.pretki.com.rentcar.RentalOffice.Customers;
-import patryk.pretki.com.rentcar.RentalOffice.Reservation;
+package patryk.pretki.com.rentcar.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

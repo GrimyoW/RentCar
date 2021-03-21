@@ -1,4 +1,4 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 
 import javax.persistence.*;
@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table
 public class Branch { // Firma
   // nazwa firmy
-  // domena internetowa
+  // domena internetowa - nie wiem jak to zrobić
   // adres kontaktowy
   // właściciel
   // logotyp

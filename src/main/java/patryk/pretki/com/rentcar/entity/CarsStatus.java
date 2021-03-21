@@ -1,4 +1,4 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 public enum CarsStatus { //status aut
   DAMAGE,

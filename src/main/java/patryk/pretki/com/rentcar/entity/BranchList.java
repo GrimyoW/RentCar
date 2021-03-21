@@ -1,4 +1,4 @@
-package patryk.pretki.com.rentcar.RentalOffice;
+package patryk.pretki.com.rentcar.entity;
 
 
 import javax.persistence.*;
@@ -6,6 +6,9 @@ import javax.persistence.*;
 @Entity
 @Table
 public class BranchList { //lista oddziałów
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private String id;
 
   @Column
   private String street;
@@ -22,8 +25,7 @@ public class BranchList { //lista oddziałów
   @Column
   @ManyToOne(targetEntity = Car.class)  //nie jestem tego pewien
   private Car car;
-  @Id
-  private String id;
+
 
   public BranchList() {
 
